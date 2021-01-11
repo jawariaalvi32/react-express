@@ -13,4 +13,11 @@ router.get('/:id', (req,res)=>{
     let result = users.filter((item)=>item.id == id)
     res.json(result[0])
 })
+// Add user
+router.post('/add', (req,res)=>{
+    let id = parseInt(req.params.id)
+    console.log(id)
+    let result = users.filter((item)=>item.id == id)
+    res.json(result[0])
+})
 module.exports = router
