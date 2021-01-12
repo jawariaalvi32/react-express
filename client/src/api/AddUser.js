@@ -4,14 +4,14 @@ const AddUser = () => {
     
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
-    const [country, setCountry] = React.useState("");
+    const [name, setName] = React.useState("");
     const [acceptedTerms, setAcceptedTerms] = React.useState(false);
 
     const handleSubmit = (event) => {
         console.log(`
         Email: ${email}
         Password: ${password}
-        Country: ${country}
+        Name: ${name}
         Accepted Terms: ${acceptedTerms}
         `);
 
@@ -22,6 +22,16 @@ const AddUser = () => {
         <div>
             <form onSubmit={handleSubmit}>
                 <h1>Create Account</h1>
+
+                <label>
+                    Name:
+                    <input
+                    name="name"
+                    type="text"
+                    value={name}
+                    onChange={e => setName(e.target.value)}
+                    required />
+                </label>
 
                 <label>
                     Email:
@@ -42,20 +52,6 @@ const AddUser = () => {
                     onChange={e => setPassword(e.target.value)}
                     required />
                 </label>
-
-                {/* <label>
-                    Country:
-                    <select
-                    name="country"
-                    value={country}
-                    onChange={e => setCountry(e.target.value)}
-                    required>
-                    <option key=""></option>
-                    {countries.map(country => (
-                        <option key={country}>{country}</option>
-                    ))}
-                    </select>
-                </label> */}
 
                 <label>
                     <input

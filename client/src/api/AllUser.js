@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Axios from 'axios'
+import User from './User';
 
 const AllUser = () => {
     const [users,setUsers] = useState([])
@@ -11,7 +12,8 @@ const AllUser = () => {
   },[])
     return (
         <div>
-            <table>
+            <User/>
+            <table style={{margin: "auto"}}>
                 <tr>
                 <th>ID</th>
                 <th>Name</th>

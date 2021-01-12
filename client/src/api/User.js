@@ -9,10 +9,25 @@ const User = () => {
        setUser(res.data)
     })
 },[])
+    const handleSearch = (e) => {
+        let id = (e.target.parentNode.firstChild.value) ? e.target.parentNode.firstChild.value : 0
+        Axios.get(`http://localhost:4000/api/users/${id}`) 
+        .then((res) => {
+        setUser(res.data)
+    })
+    }
     return (
-        <div>
-            <p>Your name : {user.name} and email is {user.email}</p>
+        <>
+        <div style={{display:"flex"}}>
+            <input type="number" name="ID" placeholder="Search by ID"/>
+            <button onClick={handleSearch}>Search</button>
         </div>
+        {
+            user.name ?  
+            <p>Searched name : {user.name} and email is {user.email}</p>:
+            <p></p>
+        }
+        </>
     )
 }
 
