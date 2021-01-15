@@ -1,3 +1,4 @@
+//  Local data Api
 const express = require('express');
 const router = express.Router()
 const users = require('../../Users');
@@ -14,10 +15,10 @@ router.get('/:id', (req,res)=>{
     res.json(result[0])
 })
 // Add user
-router.post('/add', (req,res)=>{
-    let id = parseInt(req.params.id)
-    console.log(id)
-    let result = users.filter((item)=>item.id == id)
-    res.json(result[0])
-})
+// router.post('/add', (req,res)=>{
+//     let id = parseInt(req.params.id)
+//     console.log(id)
+//     let result = users.filter((item)=>item.id == id)
+//     res.json(result[0])
+// })
 module.exports = router

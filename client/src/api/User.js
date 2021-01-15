@@ -3,14 +3,9 @@ import Axios from 'axios'
 const User = () => {
 
   const [user,setUser] = useState([])
-  useEffect(() => {
-    Axios.get(`http://localhost:4000/api/users/1`) 
-     .then((res) => {
-       setUser(res.data)
-    })
-},[])
     const handleSearch = (e) => {
         let id = (e.target.parentNode.firstChild.value) ? e.target.parentNode.firstChild.value : 0
+        console.log(e.target.parentNode.firstChild.value)
         Axios.get(`http://localhost:4000/api/users/${id}`) 
         .then((res) => {
         setUser(res.data)
@@ -19,7 +14,7 @@ const User = () => {
     return (
         <>
         <div style={{display:"flex"}}>
-            <input type="number" name="ID" placeholder="Search by ID"/>
+            <input type="text" name="ID" placeholder="Search by ID"/>
             <button onClick={handleSearch}>Search</button>
         </div>
         {

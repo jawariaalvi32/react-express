@@ -1,5 +1,6 @@
 import React from 'react'
 import './styles.css'
+import Axios from 'axios'
 const AddUser = () => {
     
     const [email, setEmail] = React.useState("");
@@ -9,11 +10,16 @@ const AddUser = () => {
 
     const handleSubmit = (event) => {
         console.log(`
-        Email: ${email}
-        Password: ${password}
-        Name: ${name}
-        Accepted Terms: ${acceptedTerms}
+        email: ${email}
+        pwd: ${password}
+        name: ${name}
         `);
+        let user = {name : name, email: email, pwd: password}
+        Axios.post('http://localhost:4000/api/users', user) 
+        .then((res) => {
+            window.location = '/users';
+
+       }).catch(err=>console.log(err,'error'));
 
         event.preventDefault();
     }
